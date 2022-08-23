@@ -63,6 +63,8 @@
     <string name="component_listview_sdk_4_14">4.14 New Interfaces</string>
     <string name="component_listview_sdk_4_15">4.15 New Interfaces</string>
     <string name="component_listview_sdk_4_16">4.16 New Interfaces</string>
+    <!-- IC -->
+    <string name="component_listview_ic">Iniciação Científica</string>
     <string name="component_listview_waypointv2">WaypointV2 Mission Operator</string>
     <string name="component_listview_flight_hub">Flight Hub</string>
     <string name="component_listview_payload">Payload</string>
@@ -363,5 +365,7 @@
     <string name="split_screen_display">Split Screen Display</string>
 
     <string name="uas_view">UAS</string>
+    <!-- IC -->
+    <string name="desenvolver">Desenvolver</string>
 
 </resources>

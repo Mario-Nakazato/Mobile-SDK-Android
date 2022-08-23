@@ -57,6 +57,7 @@ import com.dji.sdk.sample.demo.remotecontroller.PushRemoteControllerDataView;
 import com.dji.sdk.sample.demo.rid.UASView;
 import com.dji.sdk.sample.demo.timeline.TimelineMissionControlView;
 import com.dji.sdk.sample.demo.useraccount.LDMView;
+import com.dji.sdk.sample.ic.Develop;
 import com.dji.sdk.sample.internal.controller.DJISampleApplication;
 import com.dji.sdk.sample.internal.controller.ExpandableListAdapter;
 import com.dji.sdk.sample.internal.controller.MainActivity;
@@ -93,6 +94,10 @@ public class DemoListView extends FrameLayout {
 
         // Build model for ListView
         ListItem.ListBuilder builder = new ListItem.ListBuilder();
+        // IC
+        builder.addGroup(R.string.component_listview_ic,
+                false,
+                new GroupItem(R.string.desenvolver, Develop.class));
         builder.addGroup(R.string.component_listview_sdk_4_16,
                 false,
                 new GroupItem(R.string.uas_view, UASView.class),

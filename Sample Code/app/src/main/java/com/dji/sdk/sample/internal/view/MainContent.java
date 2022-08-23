@@ -680,6 +680,8 @@ public class MainContent extends RelativeLayout {
             @Override
             public void run() {
                 progressBar.setVisibility(View.GONE);
+                // IC
+                mBtnOpen.setEnabled(true); // IC Ativei o botão para permitir o acesso sem o drone conectado.
             }
         });
     }

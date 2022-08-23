@@ -14,7 +14,8 @@ android {
 
     defaultConfig {
         applicationId "com.dji.sdk.sample"
-        minSdkVersion 23
+        minSdkVersion 21
+        //noinspection OldTargetApi
         targetSdkVersion 31
         multiDexEnabled true
         versionCode 1
