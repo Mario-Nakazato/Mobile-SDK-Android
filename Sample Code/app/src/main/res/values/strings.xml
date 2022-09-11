@@ -367,5 +367,6 @@
     <string name="uas_view">UAS</string>
     <!-- IC -->
     <string name="desenvolver">Desenvolver</string>
+    <string name="registro_simulador_voo">Registro do simulador de voo</string>
 
 </resources>
