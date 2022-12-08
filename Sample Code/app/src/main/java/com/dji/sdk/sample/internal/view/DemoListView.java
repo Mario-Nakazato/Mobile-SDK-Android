@@ -58,6 +58,7 @@ import com.dji.sdk.sample.demo.rid.UASView;
 import com.dji.sdk.sample.demo.timeline.TimelineMissionControlView;
 import com.dji.sdk.sample.demo.useraccount.LDMView;
 import com.dji.sdk.sample.ic.Develop;
+import com.dji.sdk.sample.ic.FlightRecord;
 import com.dji.sdk.sample.ic.FlightSimulatorRecord;
 import com.dji.sdk.sample.internal.controller.DJISampleApplication;
 import com.dji.sdk.sample.internal.controller.ExpandableListAdapter;
@@ -99,7 +100,8 @@ public class DemoListView extends FrameLayout {
         builder.addGroup(R.string.component_listview_ic,
                 false,
                 new GroupItem(R.string.desenvolver, Develop.class),
-                new GroupItem(R.string.registro_simulador_voo, FlightSimulatorRecord.class));
+                new GroupItem(R.string.registro_simulador_voo, FlightSimulatorRecord.class),
+                new GroupItem(R.string.registro_voo, FlightRecord.class));
         builder.addGroup(R.string.component_listview_sdk_4_16,
                 false,
                 new GroupItem(R.string.uas_view, UASView.class),
