@@ -369,5 +369,6 @@
     <string name="desenvolver">Desenvolver</string>
     <string name="registro_simulador_voo">Registro do simulador de voo</string>
     <string name="registro_voo">Registro de voo</string>
+    <string name="desenvolver_firebase">Desenvolver firebase</string>
 
 </resources>

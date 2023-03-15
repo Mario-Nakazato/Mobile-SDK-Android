@@ -33,6 +33,7 @@ import com.dji.sdk.sample.internal.model.ViewWrapper;
 import com.dji.sdk.sample.internal.utils.DialogUtils;
 import com.dji.sdk.sample.internal.utils.GeneralUtils;
 import com.dji.sdk.sample.internal.utils.ToastUtils;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
@@ -681,7 +682,9 @@ public class MainContent extends RelativeLayout {
             public void run() {
                 progressBar.setVisibility(View.GONE);
                 // IC
-                mBtnOpen.setEnabled(true); // IC Ativei o botão para permitir o acesso sem o drone conectado.
+                mBtnOpen.setEnabled(true); // Ativei o botão para permitir o acesso sem o drone conectado.
+                FirebaseDatabase.getInstance().setPersistenceEnabled(true); // Permite funcionalidade offline persiste armazenamento local
+                FirebaseDatabase.getInstance().goOnline(); // (Re)conecta ao banco de dados sincroniza em tempo real
             }
         });
     }
