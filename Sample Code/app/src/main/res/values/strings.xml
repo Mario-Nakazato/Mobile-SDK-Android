@@ -370,5 +370,6 @@
     <string name="registro_simulador_voo">Registro do simulador de voo</string>
     <string name="registro_voo">Registro de voo</string>
     <string name="desenvolver_firebase">Desenvolver firebase</string>
+    <string name="registro_simulador_voo_firebase">Registro do simulador de voo firebase</string>
 
 </resources>
