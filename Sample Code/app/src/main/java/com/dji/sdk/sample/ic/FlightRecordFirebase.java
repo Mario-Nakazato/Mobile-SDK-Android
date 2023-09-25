@@ -74,7 +74,7 @@ public class FlightRecordFirebase extends BasePushDataView {
                     currentDateTime = Helper.timeStamp2Date("dd/MM/yyyy HH:mm:ss.SSS");
                     areMotorsOn = flightControllerState.areMotorsOn();
                     isFlying = flightControllerState.isFlying();
-                    flightMode = String.valueOf(flightControllerState.getFlightMode());
+                    flightMode = flightControllerState.getFlightMode().name();
                     satelliteCount = flightControllerState.getSatelliteCount();
                     velocityX = flightControllerState.getVelocityX();
                     velocityY = flightControllerState.getVelocityY();

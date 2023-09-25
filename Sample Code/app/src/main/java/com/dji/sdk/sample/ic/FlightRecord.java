@@ -58,7 +58,7 @@ public class FlightRecord extends BasePushDataView {
                     stringBuffer.append("Data atual: ").append(Helper.timeStamp2Date("dd/MM/yyyy HH:mm:ss.SSS"));
                     stringBuffer.append("\nMotores ligados: ").append(flightControllerState.areMotorsOn());
                     stringBuffer.append("\nAeronave voando: ").append(flightControllerState.isFlying());
-                    stringBuffer.append("\nModo de voo: ").append(flightControllerState.getFlightMode());
+                    stringBuffer.append("\nModo de voo: ").append(flightControllerState.getFlightMode().name());
                     stringBuffer.append("\nSatélites conectados: ").append(flightControllerState.getSatelliteCount());
                     stringBuffer.append("\nVelocidade X: ").append(decimalFormatter.format(flightControllerState.getVelocityX()));
                     stringBuffer.append("\nVelocidade Y: ").append(decimalFormatter.format(flightControllerState.getVelocityY()));
