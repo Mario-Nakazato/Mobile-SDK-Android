@@ -9,10 +9,14 @@ import com.dji.sdk.sample.internal.utils.Helper;
 import com.dji.sdk.sample.internal.utils.ModuleVerificationUtil;
 import com.dji.sdk.sample.internal.utils.ToastUtils;
 import com.dji.sdk.sample.internal.view.BasePushDataView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.Map;
 
 import dji.common.error.DJIError;
 import dji.common.flightcontroller.simulator.InitializationData;
@@ -87,19 +91,53 @@ public class FlightSimulatorRecordFirebase extends BasePushDataView {
                     longitude = location.getLongitude();
 
                     if (areMotorsOn) {
-                        String dataKey = DataRef.push().getKey();
-                        DatabaseReference data = DataRef.child(dataKey);
-                        data.child("currentDateTime").setValue(currentDateTime);
-                        data.child("areMotorsOn").setValue(areMotorsOn);
-                        data.child("isFlying").setValue(isFlying);
-                        data.child("positionX").setValue(positionX);
-                        data.child("positionY").setValue(positionY);
-                        data.child("positionZ").setValue(positionZ);
-                        data.child("roll").setValue(roll);
-                        data.child("pitch").setValue(pitch);
-                        data.child("yaw").setValue(yaw);
-                        data.child("latitude").setValue(latitude);
-                        data.child("longitude").setValue(longitude);
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                String DataKey = DataRef.push().getKey();
+                                DatabaseReference Data = DataRef.child(DataKey);
+                                Map<String, Object> dataMap = new HashMap<>();
+
+                                dataMap.put("currentDateTime", currentDateTime);
+                                dataMap.put("areMotorsOn", areMotorsOn);
+                                dataMap.put("isFlying", isFlying);
+                                dataMap.put("positionX", positionX);
+                                dataMap.put("positionY", positionY);
+                                dataMap.put("positionZ", positionZ);
+                                dataMap.put("roll", roll);
+                                dataMap.put("pitch", pitch);
+                                dataMap.put("yaw", yaw);
+                                dataMap.put("latitude", Double.isNaN(latitude) ? Double.toString(latitude) : latitude);
+                                dataMap.put("longitude", Double.isNaN(longitude) ? Double.toString(longitude) : longitude);
+
+                                Task<Void> updateTask = Data.updateChildren(dataMap);
+                                /*updateTask.addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            ToastUtils.setResultToToast("TRUE");
+                                        } else {
+                                            ToastUtils.setResultToToast("FALSE");
+                                        }
+                                    }
+                                });*/
+
+                                /*String dataKey = DataRef.push().getKey();
+                                DatabaseReference data = DataRef.child(dataKey);
+
+                                data.child("currentDateTime").setValue(currentDateTime);
+                                data.child("areMotorsOn").setValue(areMotorsOn);
+                                data.child("isFlying").setValue(isFlying);
+                                data.child("positionX").setValue(positionX);
+                                data.child("positionY").setValue(positionY);
+                                data.child("positionZ").setValue(positionZ);
+                                data.child("roll").setValue(roll);
+                                data.child("pitch").setValue(pitch);
+                                data.child("yaw").setValue(yaw);
+                                data.child("latitude").setValue(latitude);
+                                data.child("longitude").setValue(longitude);*/
+                            }
+                        }).start();
                     }
 
                     stringBuffer.delete(0, stringBuffer.length());

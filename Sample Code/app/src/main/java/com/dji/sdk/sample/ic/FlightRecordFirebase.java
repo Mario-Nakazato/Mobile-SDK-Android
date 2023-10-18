@@ -9,10 +9,14 @@ import com.dji.sdk.sample.internal.utils.Helper;
 import com.dji.sdk.sample.internal.utils.ModuleVerificationUtil;
 import com.dji.sdk.sample.internal.utils.ToastUtils;
 import com.dji.sdk.sample.internal.view.BasePushDataView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.Map;
 
 import dji.common.flightcontroller.Attitude;
 import dji.common.flightcontroller.FlightControllerState;
@@ -43,6 +47,8 @@ public class FlightRecordFirebase extends BasePushDataView {
                 showStringBufferResult();
                 return;
             }
+
+            //FirebaseDatabase.getInstance().goOffline();
 
             // Na versão da branch ic estava declarando dentro da FlightControllerState.Callback
             DecimalFormat decimalFormatter = new DecimalFormat("0.00");
@@ -98,6 +104,42 @@ public class FlightRecordFirebase extends BasePushDataView {
                             public void run() {
                                 String DataKey = DataRef.push().getKey();
                                 DatabaseReference Data = DataRef.child(DataKey);
+                                Map<String, Object> dataMap = new HashMap<>();
+
+                                dataMap.put("currentDateTime", currentDateTime);
+                                dataMap.put("areMotorsOn", areMotorsOn);
+                                dataMap.put("isFlying", isFlying);
+                                dataMap.put("flightMode", flightMode);
+                                dataMap.put("satelliteCount", satelliteCount);
+                                dataMap.put("velocityX", velocityX);
+                                dataMap.put("velocityY", velocityY);
+                                dataMap.put("velocityZ", velocityZ);
+                                dataMap.put("roll", roll);
+                                dataMap.put("pitch", pitch);
+                                dataMap.put("yaw", yaw);
+                                dataMap.put("ultrasonicHeight", ultrasonicHeight);
+                                dataMap.put("aircraftHeadDirection", aircraftHeadDirection);
+                                dataMap.put("flightTimeInSeconds", flightTimeInSeconds);
+                                dataMap.put("latitude", Double.isNaN(latitude) ? Double.toString(latitude) : latitude);
+                                dataMap.put("longitude", Double.isNaN(longitude) ? Double.toString(longitude) : longitude);
+                                dataMap.put("altitude", altitude);
+                                dataMap.put("flightCount", flightCount);
+
+                                Task<Void> updateTask = Data.updateChildren(dataMap);
+                                /*updateTask.addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            ToastUtils.setResultToToast("TRUE");
+                                        } else {
+                                            ToastUtils.setResultToToast("FALSE");
+                                        }
+                                    }
+                                });*/
+
+                                /*String DataKey = DataRef.push().getKey();
+                                DatabaseReference Data = DataRef.child(DataKey);
+
                                 Data.child("currentDateTime").setValue(currentDateTime);
                                 Data.child("areMotorsOn").setValue(areMotorsOn);
                                 Data.child("isFlying").setValue(isFlying);
@@ -115,7 +157,7 @@ public class FlightRecordFirebase extends BasePushDataView {
                                 Data.child("latitude").setValue(Double.isNaN(latitude) ? Double.toString(latitude) : latitude);
                                 Data.child("longitude").setValue(Double.isNaN(longitude) ? Double.toString(longitude) : longitude);
                                 Data.child("altitude").setValue(altitude);
-                                Data.child("flightCount").setValue(flightCount);
+                                Data.child("flightCount").setValue(flightCount);*/
                             }
                         }).start();
                     }
