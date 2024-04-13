@@ -5,7 +5,7 @@ MSDK V5 Supported Product:
 * [M30 Series](https://www.dji.com/matrice-30?site=brandsite&from=nav)
 * [M300 RTK](https://www.dji.com/matrice-300?site=brandsite&from=nav)
 
-# DJI Mobile SDK V4 for Android Latest Version 4.16.4
+# DJI Mobile SDK V4 for Android Latest Version 4.17
 
 ## What Is This?
 
@@ -19,21 +19,21 @@ Declare dependency via Maven:
 <dependency>
     <groupId>com.dji</groupId>
     <artifactId>dji-sdk</artifactId>
-    <version>4.16.4</version>
+    <version>4.17</version>
 </dependency>
 
 <dependency>
     <groupId>com.dji</groupId>
     <artifactId>dji-sdk-provided</artifactId>
-    <version>4.16.4</version>
+    <version>4.17</version>
 </dependency>
 ~~~
 
 or Gradle:
 
 ~~~groovy
-compile 'com.dji:dji-sdk:4.16.4'
-provided 'com.dji:dji-sdk-provided:4.16.4'
+compile 'com.dji:dji-sdk:4.17'
+provided 'com.dji:dji-sdk-provided:4.17'
 ~~~
 
 For further detail on how to integrate the DJI Android SDK into your Android Studio project, please check the [Integrate SDK into Application](http://developer.dji.com/mobile-sdk/documentation/application-development-workflow/workflow-integrate.html#import-maven-dependency) tutorial.
@@ -135,9 +135,9 @@ Please check this [link](https://github.com/dji-sdk/Android-Bridge-App) to downl
 
 ## License
 
-The DJI Android SDK is dynamically linked with unmodified libraries of <a href=http://ffmpeg.org>FFmpeg</a> licensed under the <a href=https://www.gnu.org/licenses/lgpl-3.0.html.en>LGPLv3.0</a>. The source code of these FFmpeg libraries, the compilation instructions, and the LGPL v3.0 license are provided in [Github](https://github.com/dji-sdk/FFmpeg).
+The DJI Android SDK is dynamically linked with unmodified libraries of <a href=http://ffmpeg.org>FFmpeg</a> licensed under the <a href=https://www.gnu.org/licenses/lgpl-2.1.html.en>LGPLv2.1</a>. The source code of these FFmpeg libraries, the compilation instructions, and the LGPL v2.1 license are provided in [Github](https://github.com/dji-sdk/FFmpeg).
 
-The DJI Android SDK is dynamically linked with unmodified libraries of <a href=https://mvnrepository.com/artifact/com.vividsolutions/jts/1.8>JTS Topology Suite</a> licensed under the <a href=https://www.gnu.org/licenses/lgpl-3.0.html.en>LGPLv3.0</a>.
+The DJI Android SDK is dynamically linked with unmodified libraries of <a href=https://mvnrepository.com/artifact/com.vividsolutions/jts/1.8>JTS Topology Suite</a> licensed under the <a href=https://www.gnu.org/licenses/lgpl-2.1.html.en>LGPLv2.1</a>.
 
 ## Support
 
