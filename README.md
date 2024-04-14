@@ -1,11 +1,34 @@
+# Derivação do projeto DJI Mobile SDK V4 for Android Latest Version 4.17
+
+#### O projeto conta com implementações para entender o fluxo de desenvolvimento com o DJI Mobile SDK feitos pra acelerar o desenvolvimento do aplicativo
+
+<div style="display: flex;">
+    <img src="./images/registrationScreen.png" alt="Tela de Registro" width="256">
+    <img src="./images/componentListIC.png" alt="Lista de componentes IC" width="256">
+</div>
+
+#### - Envolveu criar o Desenvolver implementando uma novo recurso, iniciando o relógio marcando o inicio e o fim de um certo intervalo.
+
+#### - Envolveu criar o Registro do simulador de voo implementando uma novo recurso, obtém registro de voo simulado com Drone.
+
+#### - Envolveu criar o Registro de voo implementando uma novo recurso, obtém registro de voo real com Drone.
+
+#### - Envolveu criar o banco de dados implementando uma novo recurso, para cada um dos recursos anteriores realizando o registro no Firebase realtime tanto local, offline como em cloud, online.
+
+
+
+<div style="display: flex;">
+    <img src="./images/devScreen.png" alt="Tela de desenvolver" width="256">
+    <img src="./images/simulatorScreen.jpg" alt="Tela do simulador" width="256">
+    <img src="./images/flightScreen.jpg" alt="Tela do voo" width="256">
+</div>
+
 # [MSDK V5 Released](https://github.com/dji-sdk/Mobile-SDK-Android-V5)
 
 MSDK V5 Supported Product:
 * [DJI Mavic 3 Enterprise Series](https://www.dji.com/cn/mavic-3-enterprise)
 * [M30 Series](https://www.dji.com/matrice-30?site=brandsite&from=nav)
 * [M300 RTK](https://www.dji.com/matrice-300?site=brandsite&from=nav)
-
-# DJI Mobile SDK V4 for Android Latest Version 4.17
 
 ## What Is This?
 
